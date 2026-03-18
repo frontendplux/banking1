@@ -15,9 +15,9 @@ jobs:
       - name: 🚀 Upload to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ secrets.Hostname }}
-          username: ${{ secrets.Username }}
-          password: ${{ secrets.Password }}
+          server: ${{ secrets.HOSTNAME }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
           server-dir: ./htdocs/          # Remote path (adjust if needed)
           local-dir: ./       # Upload local project root
           exclude: |
