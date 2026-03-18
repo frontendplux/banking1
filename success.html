@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftPay | Next-Gen VTU Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        :root {                                                                                                                                                   
+            --primary-color: #4F46E5; /* Indigo */
+            --secondary-color: #0EA5E9; /* Sky Blue */
+            --accent-gold: #F59E0B;
+            --dark-bg: #0F172A;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #ffffff;
+            color: #1e293b;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Hero Section */
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #eef2ff 0%, #ffffff 50%);
+            padding: 120px 0 80px 0;
+        }
+
+        .hero-badge {
+            background: #EEF2FF;
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+
+        /* Premium Form Card */
+        .vtu-form-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.03);
+            padding: 40px;
+        }
+
+        .form-control, .form-select {
+            border: 2px solid #f1f5f9;
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: none;
+        }
+
+        /* Service Cards */
+        .service-card {
+            border: none;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #f8fafc;
+        }
+
+        .service-card:hover {
+            background: #ffffff;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--dark-bg);
+            color: white;
+            border-radius: 30px;
+            padding: 60px 0;
+            margin-top: -50px;
+        }
+
+        .btn-primary-premium {
+            background: var(--primary-color);
+            border: none;
+            padding: 14px 30px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-primary-premium:hover {
+            background: #4338ca;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bolder fs-4 text-primary" href="#">SWIFTPAY.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-lg-3 fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="#">Data</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Airtime</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Utility</a></li>
+                    <li class="nav-item ms-lg-4"><a class="btn btn-light rounded-pill px-4 border" href="#">Sign In</a></li>
+                    <li class="nav-item"><a class="btn btn-primary-premium rounded-pill px-4 text-white" href="#">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<style>
+    .success-wrapper {
+        min-height: 100vh;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .confetti-container {
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Animated Checkmark */
+    .checkmark-wrapper {
+        width: 100px;
+        height: 100px;
+        background: #DCFCE7;
+        color: #16A34A;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        margin: 0 auto 30px;
+        animation: scaleUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes scaleUp {
+        from { transform: scale(0); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Account Card Styling */
+    .bank-card {
+        background: #F8FAFC;
+        border: 1px solid #E2E8F0;
+        border-radius: 24px;
+        padding: 25px;
+        margin-top: 30px;
+        position: relative;
+        transition: 0.3s;
+    }
+
+    .bank-card:hover {
+        border-color: var(--primary-color);
+        background: #ffffff;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+    }
+
+    .bank-logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        object-fit: contain;
+        background: white;
+        padding: 5px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .copy-btn {
+        background: #ffffff;
+        border: 1px solid #E2E8F0;
+        border-radius: 12px;
+        padding: 8px 15px;
+        font-size: 0.75rem;
+        font-weight: 800;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .copy-btn:hover {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+    }
+
+    /* Celebration Text */
+    .gradient-text {
+        background: linear-gradient(90deg, #4F46E5, #0EA5E9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+    }
+</style>
+
+<div class="success-wrapper" style="margin-top: 100px;">
+    <div class="confetti-container">
+        
+        <div class="checkmark-wrapper">
+            <i class="bi bi-check-lg"></i>
+        </div>
+        
+        <h2 class="fw-800 mb-2">Welcome Aboard, <span class="gradient-text">Adewale!</span></h2>
+        <p class="text-muted fw-bold">Your identity is verified. We've generated your unique funding accounts below.</p>
+
+        <div class="bank-card text-start">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="bank-logo d-flex align-items-center justify-content-center fw-bold text-danger">W</div>
+                    <div>
+                        <h6 class="mb-0 fw-800">Wema Bank</h6>
+                        <span class="x-small text-muted fw-bold">Virtual Account</span>
+                    </div>
+                </div>
+                <button class="copy-btn" onclick="copyText('7012345678')">
+                    <i class="bi bi-copy me-1"></i> Copy
+                </button>
+            </div>
+            <div class="ps-5">
+                <h4 class="fw-800 mb-1 ls-1" style="letter-spacing: 2px;">7012345678</h4>
+                <p class="x-small text-uppercase fw-800 text-muted mb-0">Holder: FLY-ADEWALE JOHN</p>
+            </div>
+        </div>
+
+        <div class="bank-card text-start border-top-0 mt-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="bank-logo d-flex align-items-center justify-content-center fw-bold text-primary">M</div>
+                    <div>
+                        <h6 class="mb-0 fw-800">Moniepoint</h6>
+                        <span class="x-small text-muted fw-bold">Microfinance Bank</span>
+                    </div>
+                </div>
+                <button class="copy-btn" onclick="copyText('5098765432')">
+                    <i class="bi bi-copy me-1"></i> Copy
+                </button>
+            </div>
+            <div class="ps-5">
+                <h4 class="fw-800 mb-1 ls-1" style="letter-spacing: 2px;">5098765432</h4>
+                <p class="x-small text-uppercase fw-800 text-muted mb-0">Holder: FLY-ADEWALE JOHN</p>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <a href="dashboard.html" class="btn btn-primary w-100 py-3 rounded-4 fw-800 shadow-sm mb-3">
+                Go to Dashboard
+            </a>
+            <p class="small fw-bold text-muted">
+                <i class="bi bi-info-circle me-1"></i> Funds sent to these accounts will reflect in your wallet instantly.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function copyText(text) {
+        navigator.clipboard.writeText(text);
+        
+        // Simple visual feedback
+        const btn = event.currentTarget;
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = '<i class="bi bi-check2"></i> Copied!';
+        btn.classList.add('bg-success', 'text-white', 'border-success');
+        
+        setTimeout(() => {
+            btn.innerHTML = originalHtml;
+            btn.classList.remove('bg-success', 'text-white', 'border-success');
+        }, 2000);
+    }
+</script>

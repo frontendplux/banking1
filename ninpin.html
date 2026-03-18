@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftPay | Next-Gen VTU Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        :root {                                                                                                                                                   
+            --primary-color: #4F46E5; /* Indigo */
+            --secondary-color: #0EA5E9; /* Sky Blue */
+            --accent-gold: #F59E0B;
+            --dark-bg: #0F172A;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #ffffff;
+            color: #1e293b;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Hero Section */
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #eef2ff 0%, #ffffff 50%);
+            padding: 120px 0 80px 0;
+        }
+
+        .hero-badge {
+            background: #EEF2FF;
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+
+        /* Premium Form Card */
+        .vtu-form-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.03);
+            padding: 40px;
+        }
+
+        .form-control, .form-select {
+            border: 2px solid #f1f5f9;
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: none;
+        }
+
+        /* Service Cards */
+        .service-card {
+            border: none;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #f8fafc;
+        }
+
+        .service-card:hover {
+            background: #ffffff;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--dark-bg);
+            color: white;
+            border-radius: 30px;
+            padding: 60px 0;
+            margin-top: -50px;
+        }
+
+        .btn-primary-premium {
+            background: var(--primary-color);
+            border: none;
+            padding: 14px 30px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-primary-premium:hover {
+            background: #4338ca;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bolder fs-4 text-primary" href="#">SWIFTPAY.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-lg-3 fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="#">Data</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Airtime</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Utility</a></li>
+                    <li class="nav-item ms-lg-4"><a class="btn btn-light rounded-pill px-4 border" href="#">Sign In</a></li>
+                    <li class="nav-item"><a class="btn btn-primary-premium rounded-pill px-4 text-white" href="#">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <style>
+    /* OTP Wrapper */
+    .otp-container {
+        max-width: 450px;
+        margin: 100px auto;
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* Multi-box OTP Input */
+    .otp-input-group {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        margin: 30px 0;
+    }
+
+    .otp-box {
+        width: 40px;
+        height: 45px;
+        border: 2px solid #F1F5F9;
+        background: #F8FAFC;
+        border-radius: 16px;
+        text-align: center;
+        font-size: large;
+        font-weight: 800;
+        color: var(--primary-color);
+        transition: 0.3s;
+    }
+
+    .otp-box:focus {
+        border-color: var(--primary-color);
+        background: white;
+        outline: none;
+        box-shadow: 0 10px 20px rgba(79, 70, 229, 0.1);
+        transform: translateY(-2px);
+    }
+
+    /* Verification Status Pulse */
+    .otp-timer {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #64748B;
+        background: #F1F5F9;
+        padding: 8px 16px;
+        border-radius: 50px;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+    .resend-link {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 0.85rem;
+        transition: 0.2s;
+    }
+
+    .resend-link.disabled {
+        color: #CBD5E1;
+        pointer-events: none;
+    }
+
+    /* Animation for Success */
+    .success-pulse {
+        color: #10B981;
+        animation: pulseIcon 2s infinite;
+    }
+
+    @keyframes pulseIcon {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.1); opacity: 0.7; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+</style>
+
+<div class="otp-container">
+    <div class="mb-4">
+        <div class="icon-box bg-primary bg-opacity-10 text-primary mx-auto mb-3">
+            <i class="bi bi-shield-lock-fill"></i>
+        </div>
+        <h4 class="fw-800">Confirm Identity</h4>
+        <p class="text-muted small fw-bold">
+            We've sent a 6-digit code to the phone number linked to your <span class="text-dark">BVN/NIN</span>.
+        </p>
+    </div>
+
+    <div class="otp-timer">
+        <i class="bi bi-clock-history me-2"></i> Expires in <span id="timer">01:59</span>
+    </div>
+
+    <form id="otpForm">
+        <div class="otp-input-group">
+            <input type="text" class="otp-box" maxlength="1" oninput="moveNext(this, 'otp2')" id="otp1" autofocus>
+            <input type="text" class="otp-box" maxlength="1" oninput="moveNext(this, 'otp3')" id="otp2">
+            <input type="text" class="otp-box" maxlength="1" oninput="moveNext(this, 'otp4')" id="otp3">
+            <input type="text" class="otp-box" maxlength="1" oninput="moveNext(this, 'otp5')" id="otp4">
+            <input type="text" class="otp-box" maxlength="1" oninput="moveNext(this, 'otp6')" id="otp5">
+            <input type="text" class="otp-box" maxlength="1" oninput="checkComplete()" id="otp6">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 py-3 rounded-4 fw-800 shadow-sm mb-4 disabled" id="verifyOtpBtn">
+            Complete Verification
+        </button>
+    </form>
+
+    <p class="small fw-bold text-muted">
+        Didn't get the code? <br class="d-md-none">
+        <a href="#" class="resend-link disabled" id="resendBtn">Resend Code (Available in 60s)</a>
+    </p>
+</div>
+
+<script>
+    // 1. Auto-tab Logic
+    function moveNext(current, nextId) {
+        if (current.value.length >= 1) {
+            document.getElementById(nextId).focus();
+        }
+    }
+
+    // 2. Enable Button when 6 digits are filled
+    function checkComplete() {
+        const inputs = document.querySelectorAll('.otp-box');
+        const btn = document.getElementById('verifyOtpBtn');
+        let filled = true;
+        
+        inputs.forEach(input => {
+            if (input.value === "") filled = false;
+        });
+
+        if (filled) {
+            btn.classList.remove('disabled');
+        } else {
+            btn.classList.add('disabled');
+        }
+    }
+
+    // 3. Simple Countdown Timer Logic
+    let timeLeft = 119;
+    const timerElement = document.getElementById('timer');
+    const resendBtn = document.getElementById('resendBtn');
+
+    const countdown = setInterval(() => {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        timerElement.innerHTML = `0${minutes}:${seconds}`;
+        
+        if (timeLeft <= 59) {
+            resendBtn.classList.remove('disabled');
+            resendBtn.innerHTML = "Resend Code Now";
+        }
+
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            timerElement.innerHTML = "00:00";
+        } else {
+            timeLeft--;
+        }
+    }, 1000);
+</script>

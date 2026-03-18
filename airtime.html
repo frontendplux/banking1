@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftPay | Next-Gen VTU Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --primary-color: #4F46E5; /* Indigo */
+            --secondary-color: #0EA5E9; /* Sky Blue */
+            --accent-gold: #F59E0B;
+            --dark-bg: #0F172A;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #ffffff;
+            color: #1e293b;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Hero Section */
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #eef2ff 0%, #ffffff 50%);
+            padding: 120px 0 80px 0;
+        }
+
+        .hero-badge {
+            background: #EEF2FF;
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+
+        /* Premium Form Card */
+        .vtu-form-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.03);
+            padding: 40px;
+        }
+
+        .form-control, .form-select {
+            border: 2px solid #f1f5f9;
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: none;
+        }
+
+        /* Service Cards */
+        .service-card {
+            border: none;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #f8fafc;
+        }
+
+        .service-card:hover {
+            background: #ffffff;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--dark-bg);
+            color: white;
+            border-radius: 30px;
+            padding: 60px 0;
+            margin-top: -50px;
+        }
+
+        .btn-primary-premium {
+            background: var(--primary-color);
+            border: none;
+            padding: 14px 30px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-primary-premium:hover {
+            background: #4338ca;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bolder fs-4 text-primary" href="#">SWIFTPAY.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-lg-3 fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="#">Data</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Airtime</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Utility</a></li>
+                    <li class="nav-item ms-lg-4"><a class="btn btn-light rounded-pill px-4 border" href="#">Sign In</a></li>
+                    <li class="nav-item"><a class="btn btn-primary-premium rounded-pill px-4 text-white" href="#">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+<style>
+    :root {
+        --airtime-bg: #F8FAFC;
+        --mtn-yellow: #FFCC00;
+        --airtel-red: #E30613;
+        --glo-green: #22C55E;
+        --9mobile-green: #00665E;
+    }
+
+    .airtime-wrapper {
+        background-color: var(--airtime-bg);
+        padding: 40px 0;
+    }
+
+    /* Bonus Card */
+    .bonus-card {
+        background: #1E293B;
+        color: #fff;
+        border-radius: 20px;
+        padding: 25px;
+        border-left: 5px solid #4F46E5;
+    }
+
+    /* Amount Chips */
+    .amount-chip-group input[type="radio"] {
+        display: none;
+    }
+
+    .amount-label {
+        display: block;
+        background: #fff;
+        border: 2px solid #E2E8F0;
+        border-radius: 12px;
+        padding: 12px;
+        text-align: center;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .amount-chip-group input[type="radio"]:checked + .amount-label {
+        background: #4F46E5;
+        color: white;
+        border-color: #4F46E5;
+        transform: scale(1.05);
+    }
+
+    /* Summary Panel */
+    .summary-panel {
+        background: #EEF2FF;
+        border-radius: 15px;
+        padding: 20px;
+        border: 1px dashed #4F46E5;
+    }
+
+    .network-badge-mini {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+    }
+</style>
+
+<div class="airtime-wrapper" style="margin-top: 90px;">
+    <div class="container">
+        <div class="row g-4">
+            
+            <div class="col-lg-7">
+                <div class="card border-0 shadow-sm p-4 rounded-4 mb-4">
+                    <h4 class="fw-800 mb-4">Buy Airtime</h4>
+                    
+                    <form>
+                        <div class="mb-4">
+                            <label class="small fw-bold text-muted mb-3 d-block">CHOOSE NETWORK</label>
+                            <div class="row g-3">
+                                <div class="col-3">
+                                    <div class="network-label border text-center p-2 rounded-3">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/MTN_Logo.svg" style="height:25px" alt="MTN">
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="network-label border text-center p-2 rounded-3 bg-light opacity-50">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Airtel_logo.svg" style="height:25px" alt="Airtel">
+                                    </div>
+                                </div>
+                                </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="small fw-bold text-muted mb-2">RECIPIENT NUMBER</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white border-end-0"><i class="bi bi-person"></i></span>
+                                <input type="number" class="form-control border-start-0 ps-0 py-3" placeholder="09012345678">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="small fw-bold text-muted mb-3 d-block">SELECT OR TYPE AMOUNT</label>
+                            <div class="row g-2 amount-chip-group mb-3">
+                                <div class="col-3">
+                                    <input type="radio" name="amt" id="a100" value="100">
+                                    <label class="amount-label" for="a100">₦100</label>
+                                </div>
+                                <div class="col-3">
+                                    <input type="radio" name="amt" id="a200" value="200" checked>
+                                    <label class="amount-label" for="a200">₦200</label>
+                                </div>
+                                <div class="col-3">
+                                    <input type="radio" name="amt" id="a500" value="500">
+                                    <label class="amount-label" for="a500">₦500</label>
+                                </div>
+                                <div class="col-3">
+                                    <input type="radio" name="amt" id="a1000" value="1000">
+                                    <label class="amount-label" for="a1000">₦1k</label>
+                                </div>
+                            </div>
+                            <input type="number" class="form-control bg-light border-0 py-3" placeholder="Enter Custom Amount (₦)">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 py-3 fw-bold rounded-3 shadow-lg">Purchase Airtime Now</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="bonus-card mb-4">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="bi bi-gift-fill text-warning me-2"></i>
+                        <span class="small fw-bold">PROMO ACTIVE</span>
+                    </div>
+                    <h5 class="fw-bold">Get 3% Cashback</h5>
+                    <p class="small opacity-75 mb-0">Buy ₦2,000+ airtime and get instant ₦60 back into your wallet.</p>
+                </div>
+
+                <div class="card border-0 shadow-sm p-4 rounded-4">
+                    <h6 class="fw-bold mb-3">Transaction Summary</h6>
+                    <div class="summary-panel mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted small">Service</span>
+                            <span class="small fw-bold">Airtime Top-up</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted small">Network</span>
+                            <span class="small fw-bold text-primary">MTN Nigeria</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted small">Discount (2%)</span>
+                            <span class="small fw-bold text-success">-₦4.00</span>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <span class="fw-bold text-dark">Total to Pay</span>
+                            <span class="fw-bold text-dark fs-5">₦196.00</span>
+                        </div>
+                    </div>
+
+                    <h6 class="fw-bold mb-3 small text-uppercase">Recent Airtime Purchases</h6>
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item bg-transparent px-0 border-0 d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <span class="network-badge-mini bg-warning"></span>
+                                <div>
+                                    <div class="small fw-bold">08143221100</div>
+                                    <div class="x-small text-muted" style="font-size: 0.7rem;">Today, 10:45 AM</div>
+                                </div>
+                            </div>
+                            <span class="badge bg-light text-dark border">₦500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

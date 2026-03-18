@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftPay | Next-Gen VTU Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --primary-color: #4F46E5; /* Indigo */
+            --secondary-color: #0EA5E9; /* Sky Blue */
+            --accent-gold: #F59E0B;
+            --dark-bg: #0F172A;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #ffffff;
+            color: #1e293b;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Hero Section */
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #eef2ff 0%, #ffffff 50%);
+            padding: 120px 0 80px 0;
+        }
+
+        .hero-badge {
+            background: #EEF2FF;
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+
+        /* Premium Form Card */
+        .vtu-form-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.03);
+            padding: 40px;
+        }
+
+        .form-control, .form-select {
+            border: 2px solid #f1f5f9;
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: none;
+        }
+
+        /* Service Cards */
+        .service-card {
+            border: none;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #f8fafc;
+        }
+
+        .service-card:hover {
+            background: #ffffff;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--dark-bg);
+            color: white;
+            border-radius: 30px;
+            padding: 60px 0;
+            margin-top: -50px;
+        }
+
+        .btn-primary-premium {
+            background: var(--primary-color);
+            border: none;
+            padding: 14px 30px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-primary-premium:hover {
+            background: #4338ca;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bolder fs-4 text-primary" href="#">SWIFTPAY.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-lg-3 fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="#">Data</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Airtime</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Utility</a></li>
+                    <li class="nav-item ms-lg-4"><a class="btn btn-light rounded-pill px-4 border" href="#">Sign In</a></li>
+                    <li class="nav-item"><a class="btn btn-primary-premium rounded-pill px-4 text-white" href="#">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <style>
+    :root {
+        --utility-bg: #F8FAFC;
+        --accent-orange: #F59E0B;
+        --success-green: #10B981;
+    }
+
+    .utility-wrapper {
+        background-color: var(--utility-bg);
+        padding: 40px 0;
+    }
+
+    /* Tab Styling */
+    .utility-nav .nav-link {
+        border: none;
+        color: #64748B;
+        font-weight: 600;
+        padding: 15px 25px;
+        border-radius: 12px;
+        transition: 0.3s;
+    }
+
+    .utility-nav .nav-link.active {
+        background: #FFFFFF;
+        color: #4F46E5;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    /* Verification Box */
+    .verification-box {
+        background: #F0FDF4;
+        border: 1px solid #DCFCE7;
+        border-radius: 12px;
+        padding: 15px;
+        display: none; /* Hidden until meter is validated */
+    }
+
+    .meter-status {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--success-green);
+        display: inline-block;
+        margin-right: 8px;
+    }
+
+    /* Provider Selection */
+    .provider-card {
+        border: 2px solid #F1F5F9;
+        border-radius: 15px;
+        padding: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+        background: white;
+    }
+
+    .provider-card:hover, .provider-card.selected {
+        border-color: #4F46E5;
+        background: #F5F3FF;
+    }
+
+    .provider-logo {
+        height: 30px;
+        margin-bottom: 10px;
+        filter: grayscale(100%);
+        transition: 0.3s;
+    }
+
+    .provider-card:hover .provider-logo, .provider-card.selected .provider-logo {
+        filter: grayscale(0%);
+    }
+</style>
+
+<div class="utility-wrapper" style="margin-top: 90px;">
+    <div class="container">
+        <ul class="nav utility-nav mb-5 gap-3" id="utilityTab" role="tablist">
+            <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#electricity"><i class="bi bi-lightning-charge me-2"></i>Electricity</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#cable"><i class="bi bi-tv me-2"></i>Cable TV</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="utilityTabContent">
+            <div class="tab-pane fade show active" id="electricity">
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div class="card border-0 shadow-sm p-4 rounded-4">
+                            <h5 class="fw-800 mb-4">Pay Electricity Bill</h5>
+                            
+                            <form>
+                                <div class="row g-3 mb-4">
+                                    <label class="small fw-bold text-muted">SELECT DISCO PROVIDER</label>
+                                    <div class="col-md-4">
+                                        <div class="provider-card selected">
+                                            <img src="https://via.placeholder.com/100x40?text=IKEDC" class="provider-logo" alt="Ikeja Electric">
+                                            <div class="small fw-bold">Ikeja Electric</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="provider-card">
+                                            <img src="https://via.placeholder.com/100x40?text=EKEDC" class="provider-logo" alt="Eko Electric">
+                                            <div class="small fw-bold">Eko Electric</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="provider-card">
+                                            <img src="https://via.placeholder.com/100x40?text=AEDC" class="provider-logo" alt="Abuja Electric">
+                                            <div class="small fw-bold">Abuja Electric</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-6">
+                                        <label class="small fw-bold text-muted mb-2">METER TYPE</label>
+                                        <select class="form-select border-0 bg-light py-3">
+                                            <option>Prepaid Meter</option>
+                                            <option>Postpaid Meter</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="small fw-bold text-muted mb-2">METER NUMBER</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control border-0 bg-light py-3" placeholder="Enter 11-digit number">
+                                            <button class="btn btn-dark px-3" type="button">Verify</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="verification-box mb-4 d-block">
+                                    <div class="d-flex align-items-center">
+                                        <span class="meter-status"></span>
+                                        <span class="small fw-bold text-success">Customer Found: ADEWALE JOHN DOE</span>
+                                    </div>
+                                    <div class="small text-muted ms-3 mt-1">Address: 12, Lagos Road, Ikeja.</div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="small fw-bold text-muted mb-2">AMOUNT (₦)</label>
+                                    <input type="number" class="form-control border-0 bg-light py-3 fs-5 fw-bold" placeholder="5,000">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100 py-3 fw-bold rounded-3 shadow">Generate Token Instantly</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="card border-0 shadow-sm p-4 rounded-4 bg-dark text-white mb-4">
+                            <h6 class="fw-bold mb-3"><i class="bi bi-info-circle me-2"></i>How it works</h6>
+                            <ul class="small opacity-75 list-unstyled">
+                                <li class="mb-3"><i class="bi bi-check2-circle text-success me-2"></i> Select your Electricity Distribution Company (DISCO).</li>
+                                <li class="mb-3"><i class="bi bi-check2-circle text-success me-2"></i> Enter your Meter Number and verify the customer name.</li>
+                                <li class="mb-3"><i class="bi bi-check2-circle text-success me-2"></i> Your token is sent via Email and SMS instantly.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card border-0 shadow-sm p-4 rounded-4">
+                            <h6 class="fw-bold mb-3">Recent Utility Payments</h6>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="small text-muted">IKEDC - 4501...</span>
+                                <span class="small fw-bold">₦10,000</span>
+                            </div>
+                            <hr class="my-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="small text-muted">DSTV - 1042...</span>
+                                <span class="small fw-bold">₦5,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="cable">
+                <div class="card border-0 shadow-sm p-5 rounded-4 text-center">
+                    <i class="bi bi-tv display-4 text-muted mb-3"></i>
+                    <h5>Cable TV Subscriptions</h5>
+                    <p class="text-muted">Renew your GOTV, DSTV, and StarTimes instantly.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

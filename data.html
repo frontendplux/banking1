@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftPay | Next-Gen VTU Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --primary-color: #4F46E5; /* Indigo */
+            --secondary-color: #0EA5E9; /* Sky Blue */
+            --accent-gold: #F59E0B;
+            --dark-bg: #0F172A;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #ffffff;
+            color: #1e293b;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Hero Section */
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #eef2ff 0%, #ffffff 50%);
+            padding: 120px 0 80px 0;
+        }
+
+        .hero-badge {
+            background: #EEF2FF;
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+
+        /* Premium Form Card */
+        .vtu-form-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.03);
+            padding: 40px;
+        }
+
+        .form-control, .form-select {
+            border: 2px solid #f1f5f9;
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: none;
+        }
+
+        /* Service Cards */
+        .service-card {
+            border: none;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #f8fafc;
+        }
+
+        .service-card:hover {
+            background: #ffffff;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--dark-bg);
+            color: white;
+            border-radius: 30px;
+            padding: 60px 0;
+            margin-top: -50px;
+        }
+
+        .btn-primary-premium {
+            background: var(--primary-color);
+            border: none;
+            padding: 14px 30px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-primary-premium:hover {
+            background: #4338ca;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bolder fs-4 text-primary" href="#">SWIFTPAY.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-lg-3 fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="#">Data</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Airtime</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Utility</a></li>
+                    <li class="nav-item ms-lg-4"><a class="btn btn-light rounded-pill px-4 border" href="#">Sign In</a></li>
+                    <li class="nav-item"><a class="btn btn-primary-premium rounded-pill px-4 text-white" href="#">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<style>
+    :root {
+        --dash-bg: #F1F5F9;
+        --sidebar-dark: #1E293B;
+        --accent-blue: #4F46E5;
+    }
+
+    .dashboard-wrapper {
+        background-color: var(--dash-bg);
+        min-height: 100vh;
+        padding-top: 40px;
+        padding-bottom: 80px;
+    }
+
+    /* Wallet Card */
+    .wallet-card {
+        background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+        color: white;
+        border-radius: 24px;
+        padding: 30px;
+        box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .wallet-card::after {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 150px;
+        height: 150px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 50%;
+    }
+
+    /* Purchase Form Card */
+    .form-card {
+        background: #ffffff;
+        border-radius: 20px;
+        border: none;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        padding: 30px;
+    }
+
+    .network-selector input[type="radio"] {
+        display: none;
+    }
+
+    .network-label {
+        border: 2px solid #F1F5F9;
+        border-radius: 12px;
+        padding: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+        text-align: center;
+        width: 100%;
+    }
+
+    .network-selector input[type="radio"]:checked + .network-label {
+        border-color: var(--accent-blue);
+        background: #EEF2FF;
+    }
+
+    .network-logo {
+        height: 35px;
+        margin-bottom: 5px;
+        object-fit: contain;
+    }
+
+    /* Pricing Table */
+    .table-premium {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .table-premium thead {
+        background: #F8FAFC;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+    }
+
+    .status-badge {
+        padding: 4px 12px;
+        border-radius: 50px;
+        font-size: 0.7rem;
+        font-weight: 700;
+    }
+</style>
+
+<div class="dashboard-wrapper" style="margin-top: 100px;">
+    <div class="container">
+        <div class="row g-4">
+            
+            <div class="col-lg-4">
+                <div class="wallet-card mb-4">
+                    <p class="small opacity-75 mb-1">Available Balance</p>
+                    <h2 class="fw-800 mb-4">₦45,250.00</h2>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-light btn-sm rounded-pill px-3 fw-bold text-primary">Add Funds</button>
+                        <button class="btn btn-white-outline btn-sm rounded-pill px-3 border border-white text-white">History</button>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h5 class="fw-bold mb-4">Account Analytics</h5>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-muted small">Total Spent (Monthly)</span>
+                        <span class="fw-bold">₦12,400</span>
+                    </div>
+                    <div class="progress" style="height: 6px;">
+                        <div class="progress-bar bg-primary" style="width: 70%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="form-card mb-4">
+                    <h4 class="fw-bold mb-4">Purchase Data Bundle</h4>
+                    
+                    <form>
+                        <div class="row g-3 mb-4 network-selector">
+                            <label class="small fw-bold text-muted mb-1">1. Choose Network</label>
+                            <div class="col-3">
+                                <input type="radio" name="network" id="mtn" checked>
+                                <label class="network-label" for="mtn">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/MTN_Logo.svg" class="network-logo d-block mx-auto" alt="MTN">
+                                    <span class="small fw-bold">MTN</span>
+                                </label>
+                            </div>
+                            <div class="col-3">
+                                <input type="radio" name="network" id="airtel">
+                                <label class="network-label" for="airtel">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Airtel_logo.svg" class="network-logo d-block mx-auto" alt="Airtel">
+                                    <span class="small fw-bold">Airtel</span>
+                                </label>
+                            </div>
+                            <div class="col-3">
+                                <input type="radio" name="network" id="glo">
+                                <label class="network-label" for="glo">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Glo_Limited_logo.png" class="network-logo d-block mx-auto" alt="Glo">
+                                    <span class="small fw-bold">Glo</span>
+                                </label>
+                            </div>
+                            <div class="col-3">
+                                <input type="radio" name="network" id="9mobile">
+                                <label class="network-label" for="9mobile">
+                                    <img src="https://via.placeholder.com/50?text=9m" class="network-logo d-block mx-auto" alt="9mobile">
+                                    <span class="small fw-bold">9mobile</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label class="small fw-bold text-muted">2. Select Plan</label>
+                                <select class="form-select border-0 bg-light py-3">
+                                    <option>SME 1.0GB - ₦245</option>
+                                    <option>SME 2.0GB - ₦490</option>
+                                    <option>Corporate Gifting 5GB - ₦1,200</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small fw-bold text-muted">3. Recipient Number</label>
+                                <input type="number" class="form-control border-0 bg-light py-3" placeholder="08101234567">
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary w-100 py-3 fw-bold rounded-3 shadow">Purchase Bundle Instantly</button>
+                    </form>
+                </div>
+
+                <div class="table-responsive">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold mb-0">Live Pricing Table</h5>
+                        <span class="status-badge bg-success-subtle text-success">API Status: Online</span>
+                    </div>
+                    <table class="table table-premium align-middle border">
+                        <thead>
+                            <tr>
+                                <th class="ps-4">Data Plan</th>
+                                <th>Validity</th>
+                                <th>Retail Price</th>
+                                <th class="text-end pe-4">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="ps-4">
+                                    <div class="fw-bold">MTN SME 1GB</div>
+                                    <div class="small text-muted">Automated Delivery</div>
+                                </td>
+                                <td>30 Days</td>
+                                <td class="fw-bold">₦245.00</td>
+                                <td class="text-end pe-4">
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill px-3">Buy</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ps-4">
+                                    <div class="fw-bold">Airtel CG 2GB</div>
+                                    <div class="small text-muted">Direct Gifting</div>
+                                </td>
+                                <td>30 Days</td>
+                                <td class="fw-bold">₦520.00</td>
+                                <td class="text-end pe-4">
+                                    <button class="btn btn-sm btn-outline-primary rounded-pill px-3">Buy</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

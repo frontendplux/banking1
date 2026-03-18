@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftPay | Next-Gen VTU Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        :root {                                                                                                                                                   
+            --primary-color: #4F46E5; /* Indigo */
+            --secondary-color: #0EA5E9; /* Sky Blue */
+            --accent-gold: #F59E0B;
+            --dark-bg: #0F172A;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #ffffff;
+            color: #1e293b;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Hero Section */
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #eef2ff 0%, #ffffff 50%);
+            padding: 120px 0 80px 0;
+        }
+
+        .hero-badge {
+            background: #EEF2FF;
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+
+        /* Premium Form Card */
+        .vtu-form-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.03);
+            padding: 40px;
+        }
+
+        .form-control, .form-select {
+            border: 2px solid #f1f5f9;
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: none;
+        }
+
+        /* Service Cards */
+        .service-card {
+            border: none;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #f8fafc;
+        }
+
+        .service-card:hover {
+            background: #ffffff;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--dark-bg);
+            color: white;
+            border-radius: 30px;
+            padding: 60px 0;
+            margin-top: -50px;
+        }
+
+        .btn-primary-premium {
+            background: var(--primary-color);
+            border: none;
+            padding: 14px 30px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-primary-premium:hover {
+            background: #4338ca;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bolder fs-4 text-primary" href="#">SWIFTPAY.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-lg-3 fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="#">Data</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Airtime</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Utility</a></li>
+                    <li class="nav-item ms-lg-4"><a class="btn btn-light rounded-pill px-4 border" href="#">Sign In</a></li>
+                    <li class="nav-item"><a class="btn btn-primary-premium rounded-pill px-4 text-white" href="#">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <style>
+    /* Profile Header Styling */
+    .profile-header {
+        background: #ffffff;
+        border-radius: 30px;
+        padding: 40px;
+        border: 1px solid rgba(0,0,0,0.05);
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    .profile-avatar-wrapper {
+        position: relative;
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 35px;
+        object-fit: cover;
+        border: 4px solid #F8FAFC;
+    }
+
+    .edit-avatar-btn {
+        position: absolute;
+        bottom: -5px;
+        right: -5px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 12px;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid white;
+        cursor: pointer;
+    }
+
+    /* Verification Badges */
+    .verify-badge {
+        background: #DCFCE7;
+        color: #15803D;
+        font-size: 0.7rem;
+        font-weight: 800;
+        padding: 5px 12px;
+        border-radius: 50px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Settings Cards */
+    .settings-card {
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 25px;
+        border: 1px solid rgba(0,0,0,0.04);
+        height: 100%;
+    }
+
+    .settings-input-group {
+        margin-bottom: 20px;
+    }
+
+    .settings-input-group label {
+        font-size: 0.75rem;
+        font-weight: 800;
+        color: #64748B;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .settings-input {
+        background: #F8FAFC;
+        border: 1px solid #F1F5F9;
+        border-radius: 12px;
+        padding: 12px 15px;
+        font-weight: 600;
+        width: 100%;
+        transition: 0.3s;
+    }
+
+    .settings-input:focus {
+        border-color: var(--primary-color);
+        background: white;
+        outline: none;
+    }
+
+    .kyc-status-box {
+        background: #F8FAFC;
+        border-radius: 20px;
+        padding: 20px;
+        border-left: 5px solid var(--primary-color);
+    }
+</style>
+
+<div class="container pb-5" style="margin-top: 100px;">
+    <div class="profile-header shadow-sm">
+        <div class="row align-items-center">
+            <div class="col-md-auto text-center text-md-start mb-3 mb-md-0">
+                <div class="profile-avatar-wrapper mx-auto">
+                    <img src="https://i.pravatar.cc/150?u=adex" class="profile-img shadow-sm" alt="Profile">
+                    <div class="edit-avatar-btn"><i class="bi bi-camera-fill"></i></div>
+                </div>
+            </div>
+            <div class="col-md ps-md-4 text-center text-md-start">
+                <div class="d-flex flex-column flex-md-row align-items-center gap-2 mb-2">
+                    <h3 class="fw-800 mb-0">Adewale John</h3>
+                    <span class="verify-badge"><i class="bi bi-patch-check-fill me-1"></i> Verified Merchant</span>
+                </div>
+                <p class="text-muted small fw-600 mb-3">Member since January 2024 • ID: SWP-882901</p>
+                <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-2">
+                    <button class="btn btn-primary-premium btn-sm rounded-pill px-4">Edit Profile</button>
+                    <button class="btn btn-outline-danger btn-sm rounded-pill px-4">Log Out</button>
+                </div>
+            </div>
+            <div class="col-md-3 text-md-end mt-4 mt-md-0">
+                <div class="p-3 bg-light rounded-4">
+                    <span class="x-small text-muted fw-bold d-block mb-1">REFERRAL LINK</span>
+                    <div class="d-flex align-items-center justify-content-md-end gap-2">
+                        <code class="text-primary fw-bold">swiftpay.ng/ref/adex</code>
+                        <i class="bi bi-files cursor-pointer text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-7">
+            <div class="settings-card shadow-sm">
+                <h6 class="fw-800 mb-4">Account Details</h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="settings-input-group">
+                            <label>Full Name</label>
+                            <input type="text" class="settings-input" value="Adewale John" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="settings-input-group">
+                            <label>Email Address</label>
+                            <input type="email" class="settings-input" value="adewale.j@gmail.com">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="settings-input-group">
+                            <label>Phone Number</label>
+                            <input type="tel" class="settings-input" value="+234 810 123 4567">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="settings-input-group">
+                            <label>Default Currency</label>
+                            <select class="settings-input">
+                                <option>Nigerian Naira (₦)</option>
+                                <option>US Dollar ($)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-3 opacity-10">
+                <h6 class="fw-800 mb-4">Security Keys</h6>
+                <div class="settings-input-group">
+                    <label>Current Password</label>
+                    <input type="password" class="settings-input" placeholder="••••••••••••">
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="settings-input-group">
+                            <label>New Transaction PIN</label>
+                            <input type="password" maxlength="4" class="settings-input" placeholder="****">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-dark w-100 mt-4 py-2 rounded-3 fw-bold">Update Security</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="settings-card shadow-sm mb-4">
+                <h6 class="fw-800 mb-3">Identity Verification (KYC)</h6>
+                <div class="kyc-status-box mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="small fw-800">Tier 2 Verification</span>
+                        <i class="bi bi-check-circle-fill text-success"></i>
+                    </div>
+                    <p class="x-small text-muted mb-0">You have linked your BVN and verified your Phone Number. You can now trade up to ₦500k daily.</p>
+                </div>
+                
+                <div class="d-flex justify-content-between align-items-center p-3 border rounded-4 mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <i class="bi bi-person-vcard fs-4 text-primary"></i>
+                        <div>
+                            <p class="mb-0 small fw-bold">Address Verification</p>
+                            <span class="x-small text-danger">Action Required</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-light btn-sm fw-bold">Verify</button>
+                </div>
+
+                <div class="p-3 border rounded-4 bg-light bg-opacity-50">
+                    <h6 class="x-small fw-800 text-muted text-uppercase mb-3">Upgrade Path</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="d-flex align-items-center gap-2 x-small fw-bold mb-2">
+                            <i class="bi bi-check2 text-success"></i> Email & Phone Verified
+                        </li>
+                        <li class="d-flex align-items-center gap-2 x-small fw-bold mb-2">
+                            <i class="bi bi-check2 text-success"></i> BVN Linked
+                        </li>
+                        <li class="d-flex align-items-center gap-2 x-small fw-bold text-muted">
+                            <i class="bi bi-circle text-secondary"></i> Government ID (Upgrade to Tier 3)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="settings-card shadow-sm bg-primary text-white border-0">
+                <h6 class="fw-800 mb-1">Developer API</h6>
+                <p class="x-small opacity-75 mb-3">Integrate SwiftPay into your website</p>
+                <div class="p-2 bg-white bg-opacity-10 rounded-3 d-flex justify-content-between align-items-center mb-3">
+                    <code class="text-white x-small">sk_live_8820...99x</code>
+                    <i class="bi bi-eye-fill cursor-pointer"></i>
+                </div>
+                <button class="btn btn-white btn-sm w-100 fw-800 rounded-3 bg-white text-primary border-0">Manage API Keys</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

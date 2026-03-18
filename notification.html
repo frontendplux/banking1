@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftPay | Next-Gen VTU Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        :root {                                                                                                                                                   
+            --primary-color: #4F46E5; /* Indigo */
+            --secondary-color: #0EA5E9; /* Sky Blue */
+            --accent-gold: #F59E0B;
+            --dark-bg: #0F172A;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #ffffff;
+            color: #1e293b;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Hero Section */
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #eef2ff 0%, #ffffff 50%);
+            padding: 120px 0 80px 0;
+        }
+
+        .hero-badge {
+            background: #EEF2FF;
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+
+        /* Premium Form Card */
+        .vtu-form-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.03);
+            padding: 40px;
+        }
+
+        .form-control, .form-select {
+            border: 2px solid #f1f5f9;
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: none;
+        }
+
+        /* Service Cards */
+        .service-card {
+            border: none;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #f8fafc;
+        }
+
+        .service-card:hover {
+            background: #ffffff;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--dark-bg);
+            color: white;
+            border-radius: 30px;
+            padding: 60px 0;
+            margin-top: -50px;
+        }
+
+        .btn-primary-premium {
+            background: var(--primary-color);
+            border: none;
+            padding: 14px 30px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-primary-premium:hover {
+            background: #4338ca;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bolder fs-4 text-primary" href="#">SWIFTPAY.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-lg-3 fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="#">Data</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Airtime</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Utility</a></li>
+                    <li class="nav-item ms-lg-4"><a class="btn btn-light rounded-pill px-4 border" href="#">Sign In</a></li>
+                    <li class="nav-item"><a class="btn btn-primary-premium rounded-pill px-4 text-white" href="#">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <style>
+    /* Notification Container */
+    .noti-card {
+        background: #ffffff;
+        border-radius: 28px;
+        padding: 30px;
+        border: 1px solid rgba(0,0,0,0.04);
+        box-shadow: 0 15px 45px rgba(0,0,0,0.02);
+    }
+
+    /* Tab Styling */
+    .noti-nav .nav-link {
+        border: none;
+        color: #64748B;
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding: 10px 20px;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+    .noti-nav .nav-link.active {
+        background: #EEF2FF;
+        color: var(--primary-color);
+    }
+
+    /* Notification Item */
+    .noti-item {
+        padding: 20px;
+        border-radius: 18px;
+        margin-bottom: 12px;
+        transition: 0.3s;
+        border: 1px solid transparent;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .noti-item:hover {
+        background: #f8fafc;
+        border-color: #f1f5f9;
+    }
+
+    .noti-item.unread {
+        background: #F5F7FF;
+        border-left: 4px solid var(--primary-color);
+    }
+
+    .unread-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        position: absolute;
+        right: 20px;
+        top: 25px;
+    }
+
+    /* Icon Variations */
+    .noti-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+    }
+
+    .bg-noti-promo { background: #FFF7ED; color: #EA580C; }
+    .bg-noti-security { background: #F0FDF4; color: #16A34A; }
+    .bg-noti-alert { background: #FEF2F2; color: #DC2626; }
+
+</style>
+
+<div class="container pb-5" style="margin-top: 100px;">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="noti-card">
+                
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+                    <div>
+                        <h5 class="fw-800 mb-1">Notifications</h5>
+                        <p class="small text-muted mb-0">Stay updated with your account activity</p>
+                    </div>
+                    <ul class="nav noti-nav bg-light p-1 rounded-3">
+                        <li class="nav-item">
+                            <button class="nav-link active">All</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link">Transactions</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link">Security</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="noti-list">
+                    
+                    <div class="noti-item unread d-flex align-items-start gap-3">
+                        <div class="noti-icon bg-noti-alert">
+                            <i class="bi bi-exclamaition-triangle"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="fw-800 mb-1 small">Transaction Failed</h6>
+                                <span class="x-small text-muted">2 mins ago</span>
+                            </div>
+                            <p class="small text-muted mb-2">Your data purchase for 08101234567 failed due to a network timeout. Funds have been reversed to your wallet.</p>
+                            <button class="btn btn-sm btn-outline-danger py-1 px-3 rounded-pill fw-bold" style="font-size: 0.7rem;">Retry Now</button>
+                        </div>
+                        <div class="unread-dot"></div>
+                    </div>
+
+                    <div class="noti-item d-flex align-items-start gap-3">
+                        <div class="noti-icon bg-noti-promo">
+                            <i class="bi bi-megaphone"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="fw-800 mb-1 small">Weekend Flash Sale! 🚀</h6>
+                                <span class="x-small text-muted">5 hours ago</span>
+                            </div>
+                            <p class="small text-muted mb-0">Get 5% extra data on all MTN SME bundles purchased between now and Sunday. Don't miss out!</p>
+                        </div>
+                    </div>
+
+                    <div class="noti-item d-flex align-items-start gap-3">
+                        <div class="noti-icon bg-noti-security">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="fw-800 mb-1 small">New Login Detected</h6>
+                                <span class="x-small text-muted">Yesterday</span>
+                            </div>
+                            <p class="small text-muted mb-0">Your account was accessed from a new device (iPhone 15, Lagos). If this wasn't you, please change your PIN immediately.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-4">
+                    <button class="btn btn-link text-decoration-none text-muted small fw-bold">Mark all as read</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
