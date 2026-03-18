@@ -18,8 +18,8 @@ jobs:
           server: ${{ secrets.HOSTNAME }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          server-dir: ./htdocs/          # Remote path (adjust if needed)
-          local-dir: ./       # Upload local project root
+          server-dir: htdocs/          # Remote path (adjust if needed)
+          local-dir: /       # Upload local project root
           exclude: |
             **/.git*
             **/.github*
